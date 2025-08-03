@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #FFE2E2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+}
+
+.bank-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 350px;
+  max-width: 90%;
+  border: 20px inset #8785A2;
+}
+
+.balance-card {
+  background: #F6F6F6;
+  border: 2px solid #1976d2;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+ 
+  color: #1976d2;
+  font-family: "DM Serif Text", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.8rem;
+  border: 3px groove black;
+  border-radius: 8px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.2s ease, background 0.3s ease;
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+  
+}
+
+.deposit {
+  background-color: #43a047;
+}
+
+.withdraw {
+  background-color: #e53935;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Making the UI responsive using Media Queries */
+@media (max-width: 480px) {
+  .bank-container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .balance-card {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
