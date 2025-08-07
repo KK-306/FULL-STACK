@@ -29,3 +29,13 @@
       balanceDisplay.textContent = `Balance: $${balance.toFixed(2)}`;
     }
  
+     const themeRadios = document.querySelectorAll('input[name="theme"]');
+        themeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.value === 'dark') {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+            });
+        });

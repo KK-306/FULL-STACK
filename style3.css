@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "DM Serif Text", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    height: calc(100vh - 56px);
+    position: fixed;
+    top: 56px;
+    left: 0;
+    overflow-y: auto;
+}
+
+.content {
+    margin-left: 280px;
+    padding: 20px;
+    width: 100%;
+}
+
+#page {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Dark theme styles */
+.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-theme .content,
+.dark-theme header,
+.dark-theme footer {
+    background-color: #1e1e1e;
+    color: white;
+}

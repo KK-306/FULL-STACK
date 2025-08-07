@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cookie&family=DM+Serif+Text:ital@0;1&family=Imperial+Script&family=Kaushan+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-0 border-bottom bg-light fixed-top px-3">
+        <a href="/" class="d-flex align-items-center mb-0 text-dark text-decoration-none">
+            <span class="fs-4">Admin Dashboard</span>
+        </a>
+        <!-- RADIO BUTTONS FOR THEME SWITCH -->
+        <div>
+            <label class="me-2 text-dark">Theme:</label>
+            <input type="radio" name="theme" value="light" checked> Light
+            <input type="radio" name="theme" value="dark" class="ms-2"> Dark
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item"><a href="#" class="nav-link text-white">Home</a></li>
+                <li><a href="index3.1.html" class="nav-link text-white">Dashboard</a></li>
+                <li><a href="index3.1.html" class="nav-link text-white">Orders</a></li>
+                <li><a href="index3.1.html" class="nav-link text-white">Products</a></li>
+                <li><a href="index3.1.html" class="nav-link text-white">Customers</a></li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown">
+                    <img src="rangeRover.jpg" alt="" width="32" height="32"
+                        class="rounded-circle me-2"><strong>K.K</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PAGE CONTENT -->
+        <div class="content">
+            <h1> Will be comin soon</h1>
+            <h1 id="page">Welcome Sir to the Admin Dashboard ..</h1>
+            <p>This is your workspace. Tell me Sir.. How can i help you today?</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Admin Dashboard (K.K) | All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+
+    <!-- THEME SWITCH SCRIPT -->
+   
+    <script src="index.js"></script>
+</body>
+
+</html>
