@@ -1,0 +1,17 @@
+
+        body {
+            font-family: "Kaushan Script", cursive;
+            font-weight: bold;
+            font-style:italic;
+            margin: 20px;
+            background-color: antiquewhite;
+            text-align: center;
+        }
+        h1{
+            color: rgba(139, 0, 0, 0.993);
+        }
+
+        #canvas {
+            border: 20px groove black;
+            background: whitesmoke;
+        }
