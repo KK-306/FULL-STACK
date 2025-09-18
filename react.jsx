@@ -1,185 +1,74 @@
- // App.jsx
- import { useState } from 'react'
-import './App.css'
-import ProductCard from './ProductCard'
+export default function App() {
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
 
-function App() {
-  const [count, setCount] = useState(0)
+    getInfo() {
+      return `Name: ${this.name}, Age: ${this.age}`;
+    }
+  }
 
-  const products = [
-    { name: 'Wireless Mouse', price: 25.99, inStock: true },
-    { name: 'Mechanical Keyboard', price: 89.99, inStock: false },
-    { name: 'HD Monitor', price: 199.99, inStock: true }
-  ];
+  class Student extends Person {
+    constructor(name, age, course) {
+      super(name, age);
+      this.course = course;
+    }
+
+    getInfo() {
+      return `${super.getInfo()}, Course: ${this.course}`;
+    }
+  }
+
+  class Teacher extends Person {
+    constructor(name, age, subject) {
+      super(name, age);
+      this.subject = subject;
+    }
+
+    getInfo() {
+      return `${super.getInfo()}, Subject: ${this.subject}`;
+    }
+  }
+
+  const student1 = new Student("Saran", 20, "Computer Science");
+  const teacher1 = new Teacher("Mr. Jagjit Singh", 30, "Full Stack");
+
+  const people = [student1, teacher1];
 
   return (
-    <>
-      <h1 style={{ textAlign: 'center', marginTop: '24px' }}>Product List</h1>
-      
-      <div style={{ display: 'flex', gap: '16px', marginTop: '32px', justifyContent: 'center' }}>
-        {products.map((product, idx) => (
-          <ProductCard
-            key={idx}
-            name={product.name}
-            price={product.price}
-            inStock={product.inStock}
-          />
+    <div
+      style={{
+        background: "#fff",
+        color: "#000",
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        fontFamily: "sans-serif",
+      }}
+    >
+      <h1>Person Class Hierarchy</h1>
+
+      <div style={{ width: "350px" }}>
+        {people.map((p, index) => (
+          <div
+            key={index}
+            style={{
+              border: "1px solid #ccc",
+              borderRadius: "8px",
+              padding: "10px",
+              margin: "10px 0",
+              textAlign: "left",
+            }}
+          >
+            {p.getInfo()}
+          </div>
         ))}
       </div>
-    </>
-  )
-}
-
-export default App
-
-// App.css
-
-
-app.css:- #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-//main.jsx
-
- import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
-
-// index.css 
-
-index.css:- :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-// ProductCard.jsx
-
-productcard.jsx:- import React from 'react';
-
-function ProductCard({ name, price, inStock }) {
-  return (
-    <div style={{
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      padding: '16px',
-      margin: '8px',
-      width: '220px',
-      boxShadow: '0 2px 8px #eee'
-    }}>
-      <h2>{name}</h2>
-      <p>Price: <strong>${price}</strong></p>
-      <p>Status: {inStock ? <span style={{color: 'green'}}>In Stock</span> : <span style={{color: 'red'}}>Out of Stock</span>}</p>
     </div>
   );
 }
-
-export default ProductCard;
