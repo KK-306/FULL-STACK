@@ -1,23 +1,17 @@
-// playingCardsAPI.js
 const express = require("express");
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON body
 app.use(express.json());
 
-// In-memory card collection
 let cards = [];
-let nextId = 1; // auto-increment ID for cards
+let nextId = 1; 
 
-// --- Routes ---
 
-// GET /cards - List all cards
 app.get("/cards", (req, res) => {
   res.json(cards);
 });
 
-// GET /cards/:id - Retrieve a specific card by ID
 app.get("/cards/:id", (req, res) => {
   const card = cards.find((c) => c.id === parseInt(req.params.id));
   if (!card) {
@@ -26,7 +20,7 @@ app.get("/cards/:id", (req, res) => {
   res.json(card);
 });
 
-// POST /cards - Add a new card
+
 app.post("/cards", (req, res) => {
   const { suit, value } = req.body;
   if (!suit || !value) {
@@ -44,7 +38,6 @@ app.post("/cards", (req, res) => {
   res.status(201).json(newCard);
 });
 
-// DELETE /cards/:id - Delete a card by ID
 app.delete("/cards/:id", (req, res) => {
   const cardIndex = cards.findIndex((c) => c.id === parseInt(req.params.id));
   if (cardIndex === -1) {
@@ -58,3 +51,4 @@ app.delete("/cards/:id", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🎴 Playing Card API running at http://localhost:${PORT}`);
 });
+
