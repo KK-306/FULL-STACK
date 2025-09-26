@@ -1,16 +1,15 @@
-// employeeManager.js
+
 const readline = require("readline");
 
-// Create interface for CLI
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-// Employee storage
+
 let employees = [];
 
-// Show menu
+
 function showMenu() {
   console.log("\n=== Employee Manager ===");
   console.log("1. Add Employee");
@@ -40,7 +39,7 @@ function showMenu() {
   });
 }
 
-// Add employee
+
 function addEmployee() {
   rl.question("Enter Employee ID: ", (id) => {
     if (employees.find((emp) => emp.id === id.trim())) {
@@ -56,7 +55,7 @@ function addEmployee() {
   });
 }
 
-// List employees
+
 function listEmployees() {
   if (employees.length === 0) {
     console.log("No employees found.");
@@ -69,7 +68,6 @@ function listEmployees() {
   showMenu();
 }
 
-// Remove employee
 function removeEmployee() {
   rl.question("Enter Employee ID to remove: ", (id) => {
     const index = employees.findIndex((emp) => emp.id === id.trim());
@@ -86,3 +84,4 @@ function removeEmployee() {
 
 // Start program
 showMenu();
+
