@@ -1,14 +1,13 @@
 import React from 'react';
-import ProductList from './components/ProductList';
-import Cart from './components/Cart';
+import Chat from './components/Chat';
 
-const App = () => {
+function App() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <ProductList />
-      <Cart />
+    <div style={{ fontFamily: 'Arial, sans-serif', padding: 20 }}>
+      <h1>Real-Time Chat (Socket.io)</h1>
+      <Chat />
     </div>
   );
-};
+}
 
 export default App;
