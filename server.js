@@ -1,37 +1,47 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const users = require("./users");
 const authMiddleware = require("./middleware/authMiddleware");
+const roleMiddleware = require("./middleware/roleMiddleware");
 
 dotenv.config();
 const app = express();
-
 app.use(express.json());
 
-// Dummy user (for demo purpose)
-const user = {
-  id: 1,
-  username: "admin",
-  password: "password123",
-};
-
-// Login route to generate JWT
+// Login Route — issues JWT with role
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
+  const user = users.find(u => u.username === username && u.password === password);
 
-  if (username === user.username && password === user.password) {
-    const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-    res.json({ message: "Login successful", token });
-  } else {
-    res.status(401).json({ message: "Invalid credentials" });
+  if (!user) {
+    return res.status(401).json({ message: "Invalid username or password" });
   }
+
+  const token = jwt.sign(
+    { id: user.id, username: user.username, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: "1h" }
+  );
+
+  res.json({
+    message: "Login successful",
+    token,
+    role: user.role
+  });
 });
 
-// Protected route
-app.get("/protected", authMiddleware, (req, res) => {
-  res.json({ message: `Welcome ${req.user.username}, this is a protected route!` });
+// Protected Routes
+app.get("/admin", authMiddleware, roleMiddleware(["Admin"]), (req, res) => {
+  res.json({ message: `Welcome Admin ${req.user.username}!` });
+});
+
+app.get("/moderator", authMiddleware, roleMiddleware(["Admin", "Moderator"]), (req, res) => {
+  res.json({ message: `Hello Moderator ${req.user.username}!` });
+});
+
+app.get("/user", authMiddleware, roleMiddleware(["Admin", "Moderator", "User"]), (req, res) => {
+  res.json({ message: `Hi User ${req.user.username}!` });
 });
 
 // Run server
