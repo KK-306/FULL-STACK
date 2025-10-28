@@ -1,61 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="style.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Kaushan+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <div class="form-container">
-        <h2>Registration Form</h2>
-        <form>
-            <div class="form-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" name="fullname" required />
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required />
-            </div>
-
-
-
-            <div class="form-group">
-                <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" required />
-            </div>
-
-            <button type="submit">Register</button>
-        </form>
-    </div>
-
-    <script>
-        const numStars = 100;
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement("div");
-            star.className = "star";
-            star.style.left = Math.random() * 100 + "vw";
-            star.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            star.style.animationDelay = Math.random() * 5 + "s";
-            document.body.appendChild(star);
-        }
-    </script>
-
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redux Toolkit Shopping Cart</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
