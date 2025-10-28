@@ -1,11 +1,10 @@
 import React from 'react';
-import Chat from './components/Chat';
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', padding: 20 }}>
-      <h1>Real-Time Chat (Socket.io)</h1>
-      <Chat />
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+      <LoginForm />
     </div>
   );
 }
